@@ -15,14 +15,15 @@ public class CircleService {
     public void launchBalls(Circle[] circles, Pane pane, Duration duration) {
         double[] xVel = this.getRandomVelocity(circles.length);
         double[] yVel = this.getRandomVelocity(circles.length);
+        KeyFrame [] keyFrames = new KeyFrame[circles.length];
         for (int i = 0; i < circles.length; i++) {
             pane.getChildren().add(circles[i]);
             BounceEventHandler handler = new BounceEventHandler(xVel[i], yVel[i], circles[i], pane);
-            KeyFrame keyFrame = new KeyFrame(duration, handler);
-            Timeline timeline = new Timeline(keyFrame);
-            timeline.setCycleCount(Timeline.INDEFINITE);
-            timeline.play();
+            keyFrames[i] = new KeyFrame(duration, handler);
         }
+        Timeline timeline = new Timeline(keyFrames);
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
     public Circle[] createCircles(int ballsCount) {
@@ -57,7 +58,7 @@ public class CircleService {
     }
 
     private int getRandomInt(int min, int max) {
-        int nextInt = new Random().nextInt(max);
-        return Math.max(nextInt, min);
+        int rand = new Random().nextInt(max);
+        return rand >= min ? rand : min + rand;
     }
 }
