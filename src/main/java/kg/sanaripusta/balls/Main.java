@@ -11,7 +11,6 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(this.getClass().getResource("main-view.fxml"));
-//        String cssPath = Objects.requireNonNull(this.getClass().getResource("main-view.fxml")).toExternalForm();
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Balls");
         stage.setScene(scene);
