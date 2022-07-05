@@ -26,4 +26,10 @@ class CircleServiceTest {
 
         assertArrayEquals(expectedValues, actualValues);
     }
+
+    @Test
+    void test1() {
+        double sqrt = Math.pow(0,2);
+        System.out.println(sqrt);
+    }
 }

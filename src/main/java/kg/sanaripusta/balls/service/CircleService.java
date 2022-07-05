@@ -27,14 +27,13 @@ public class CircleService {
 
         List<KeyFrame> frameList = new ArrayList<>(circleCount);
 
-        int n = 0;
-        for (int i = 0; i < circleCount; i++, n++) {
+        for (int i = 0; i < circleCount; i++) {
             BounceEventHandler handler = new BounceEventHandler(xVel[i], yVel[i], circles[i], pane);
             frameList.add(new KeyFrame(duration, handler));
         }
 
         int lineNumber = 0;
-        for (int i = 0; i < circleCount; i++, n++) {
+        for (int i = 0; i < circleCount; i++) {
             for (int j = i + 1; j < circleCount; j++) {
                 LineEventHandler lineEventHandler = new LineEventHandler(circles[i], circles[j], lineList.get(lineNumber));
                 frameList.add(new KeyFrame(duration, lineEventHandler));

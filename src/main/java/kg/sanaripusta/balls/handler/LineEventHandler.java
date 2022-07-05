@@ -5,6 +5,9 @@ import javafx.event.EventHandler;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 
+import static java.lang.Math.pow;
+import static java.lang.Math.sqrt;
+
 public class LineEventHandler implements EventHandler<ActionEvent> {
 
     Circle ball0, ball1;
@@ -18,9 +21,23 @@ public class LineEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        line.setStartX(ball0.getLayoutX());
-        line.setStartY(ball0.getLayoutY());
-        line.setEndX(ball1.getLayoutX());
-        line.setEndY(ball1.getLayoutY());
+        double ball0LayoutX = ball0.getLayoutX();
+        double ball0LayoutY = ball0.getLayoutY();
+        double ball1LayoutX = ball1.getLayoutX();
+        double ball1LayoutY = ball1.getLayoutY();
+        if (Double.compare(getHypotenuse(), 30) > 0) {
+            line.setVisible(false);
+        } else {
+            line.setVisible(true);
+            line.setStartX(ball0LayoutX);
+            line.setStartY(ball0LayoutY);
+            line.setEndX(ball1LayoutX);
+            line.setEndY(ball1LayoutY);
+        }
+
+    }
+
+    private Double getHypotenuse() {
+        return sqrt(pow(ball0.getLayoutY() - ball1.getLayoutY(), 2) + pow(ball0.getLayoutX() - ball1.getLayoutX(), 2));
     }
 }
