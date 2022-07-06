@@ -21,19 +21,12 @@ public class LineEventHandler implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        double ball0LayoutX = ball0.getLayoutX();
-        double ball0LayoutY = ball0.getLayoutY();
-        double ball1LayoutX = ball1.getLayoutX();
-        double ball1LayoutY = ball1.getLayoutY();
-        if (Double.compare(getHypotenuse(), 30) > 0) {
-            line.setVisible(false);
-        } else {
-            line.setVisible(true);
-            line.setStartX(ball0LayoutX);
-            line.setStartY(ball0LayoutY);
-            line.setEndX(ball1LayoutX);
-            line.setEndY(ball1LayoutY);
-        }
+
+        line.setVisible(Double.compare(getHypotenuse(), 120 + ball0.getRadius() + ball1.getRadius()) < 0);
+        line.setStartX(ball0.getLayoutX());
+        line.setStartY(ball0.getLayoutY());
+        line.setEndX(ball1.getLayoutX());
+        line.setEndY(ball1.getLayoutY());
     }
 
     private Double getHypotenuse() {
