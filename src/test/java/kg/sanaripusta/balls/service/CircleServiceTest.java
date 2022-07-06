@@ -1,6 +1,5 @@
-package kg.sanaripusta.balls;
+package kg.sanaripusta.balls.service;
 
-import kg.sanaripusta.balls.service.CircleService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 
@@ -25,11 +24,5 @@ class CircleServiceTest {
             actualValues[i] = (Integer) method.invoke(circleService, i);
 
         assertArrayEquals(expectedValues, actualValues);
-    }
-
-    @Test
-    void test1() {
-        double sqrt = Math.pow(0,2);
-        System.out.println(sqrt);
     }
 }

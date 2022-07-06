@@ -34,7 +34,6 @@ public class LineEventHandler implements EventHandler<ActionEvent> {
             line.setEndX(ball1LayoutX);
             line.setEndY(ball1LayoutY);
         }
-
     }
 
     private Double getHypotenuse() {

@@ -70,6 +70,19 @@ public class CircleService {
         return lineList;
     }
 
+    /**
+     * Amount of lines between balls is calculated by formula (N(N+1))/2
+     * where N is last number of sequence.
+     * Point is that number of lines connected each balls is the sum of sequence.
+     * For example:
+     * given 3 balls, count of line is 2 + 1
+     * given 4 balls, count of line is 3 + 2 + 1
+     * given 5 balls, count of line is 4 + 3 + 2 + 1
+     * and so on
+     *
+     * @param ballsCount is a number of balls.
+     * @return number of lines between each balls.
+     */
     private Integer calcLineCount(Integer ballsCount) {
         int count = ballsCount - 1;
         return (count * (count + 1)) / 2;
