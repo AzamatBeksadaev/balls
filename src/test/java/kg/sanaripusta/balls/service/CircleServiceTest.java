@@ -1,6 +1,5 @@
-package kg.sanaripusta.balls;
+package kg.sanaripusta.balls.service;
 
-import kg.sanaripusta.balls.service.CircleService;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 

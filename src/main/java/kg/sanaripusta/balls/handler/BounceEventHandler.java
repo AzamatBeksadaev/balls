@@ -30,8 +30,6 @@ public class BounceEventHandler implements EventHandler<ActionEvent> {
         double ballLayoutY = ball.getLayoutY();
         double ballRadius = ball.getRadius();
 
-//        System.out.printf("%.0f|%.0f|%.0f|%.0f\n", ballLayoutX, bounds.getMaxX(),ballLayoutY,bounds.getMaxY());
-
         if (Double.compare(ballLayoutX, (bounds.getMinX() + ballRadius)) <= 0 ||
                 Double.compare(ballLayoutX, (bounds.getMaxX() - ballRadius)) >= 0) {
             dx = -dx;
